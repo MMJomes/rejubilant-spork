@@ -2,14 +2,14 @@ import React,{ useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout"
 import Swal from 'sweetalert2'
-
+ 
 function ProjectList() {
     const  [projectList, setProjectList] = useState([])
-
+ 
     useEffect(() => {
         fetchProjectList()
     }, [])
-
+ 
     const fetchProjectList = () => {
         axios.get('/api/projects')
         .then(function (response) {
@@ -19,7 +19,7 @@ function ProjectList() {
           console.log(error);
         })
     }
-
+ 
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -52,20 +52,20 @@ function ProjectList() {
             }
           })
     }
-
+ 
     return (
         <Layout>
            <div className="container">
             <h2 className="text-center mt-5 mb-3">Laravel Project Manager</h2>
                 <div className="card">
                     <div className="card-header">
-                        <Link
+                        <Link 
                             className="btn btn-outline-primary"
                             to="/create">Create New Project
                         </Link>
                     </div>
                     <div className="card-body">
-
+             
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -91,7 +91,7 @@ function ProjectList() {
                                                     to={`/edit/${project.id}`}>
                                                     Edit
                                                 </Link>
-                                                <button
+                                                <button 
                                                     onClick={()=>handleDelete(project.id)}
                                                     className="btn btn-outline-danger mx-1">
                                                     Delete
@@ -108,5 +108,5 @@ function ProjectList() {
         </Layout>
     );
 }
-
+ 
 export default ProjectList;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout"
-
+ 
 function ProjectShow() {
     const [id, setId] = useState(useParams().id)
     const [project, setProject] = useState({name:'', description:''})
@@ -14,14 +14,14 @@ function ProjectShow() {
           console.log(error);
         })
     }, [])
-
+ 
     return (
         <Layout>
            <div className="container">
             <h2 className="text-center mt-5 mb-3">Show Project</h2>
                 <div className="card">
                     <div className="card-header">
-                        <Link
+                        <Link 
                             className="btn btn-outline-info float-right"
                             to="/"> View All Projects
                         </Link>
@@ -37,5 +37,5 @@ function ProjectShow() {
         </Layout>
     );
 }
-
+ 
 export default ProjectShow;
